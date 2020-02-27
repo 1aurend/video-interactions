@@ -1,68 +1,229 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+in: 1.9060000000000004
+out: ""
+angle: "A"
+__proto__: Object
 
-## Available Scripts
+in: 3.9530000000000003
+out: ""
+angle: "A"
+__proto__: Object
 
-In the project directory, you can run:
 
-### `npm start`
 
-Runs the app in the development mode.<br />
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
 
-The page will reload if you make edits.<br />
-You will also see any lint errors in the console.
-
-### `npm test`
-
-Launches the test runner in the interactive watch mode.<br />
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
-
-### `npm run build`
-
-Builds the app for production to the `build` folder.<br />
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.<br />
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
-
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (Webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/code-splitting
-
-### Analyzing the Bundle Size
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size
-
-### Making a Progressive Web App
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app
-
-### Advanced Configuration
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/advanced-configuration
-
-### Deployment
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/deployment
-
-### `npm run build` fails to minify
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify
+Play.js:33 paused at 3.388 secs
+Still.js:33 set video time to 3.388
+Still.js:33 set video time to 3.428
+Still.js:33 set video time to 3.468
+Still.js:33 set video time to 3.508
+Still.js:33 set video time to 3.548
+Play.js:33 paused at 6.556 secs
+Still.js:33 set video time to 6.556
+Still.js:33 set video time to 6.596
+Still.js:33 set video time to 6.636
+Still.js:33 set video time to 6.676
+Still.js:33 set video time to 6.716
+Still.js:33 set video time to 6.756
+Still.js:33 set video time to 6.796
+Still.js:33 set video time to 6.836
+Still.js:33 set video time to 6.876
+Still.js:33 set video time to 6.916
+Still.js:33 set video time to 6.956
+Still.js:33 set video time to 6.996
+Still.js:33 set video time to 7.036
+Still.js:33 set video time to 7.076
+Still.js:33 set video time to 7.116
+Still.js:33 set video time to 7.156
+Still.js:33 set video time to 7.196
+Still.js:33 set video time to 7.236
+Still.js:33 set video time to 7.276
+Still.js:33 set video time to 7.316
+Still.js:33 set video time to 7.356
+Still.js:33 set video time to 7.396
+Still.js:33 set video time to 7.436
+Still.js:33 set video time to 7.476
+Still.js:33 set video time to 7.516
+Still.js:33 set video time to 7.556
+Still.js:33 set video time to 7.596
+Still.js:33 set video time to 7.636
+Still.js:33 set video time to 7.676
+Still.js:33 set video time to 7.716
+Still.js:33 set video time to 7.756
+Still.js:33 set video time to 7.796
+Still.js:33 set video time to 7.836
+Still.js:33 set video time to 7.876
+Still.js:33 set video time to 7.916
+Still.js:33 set video time to 7.956
+Still.js:33 set video time to 7.996
+Still.js:33 set video time to 8.036
+Still.js:33 set video time to 8.076
+Still.js:33 set video time to 8.116
+Still.js:33 set video time to 8.155999
+Still.js:33 set video time to 8.195999
+Still.js:33 set video time to 8.235999
+Still.js:33 set video time to 8.275999
+Still.js:33 set video time to 8.315999
+Still.js:33 set video time to 8.355999
+Still.js:33 set video time to 8.395999
+Still.js:33 set video time to 8.435999
+Still.js:33 set video time to 8.475999
+Still.js:33 set video time to 8.515999
+Still.js:33 set video time to 8.555999
+Still.js:33 set video time to 8.595999
+Still.js:33 set video time to 8.635999
+Still.js:33 set video time to 8.675999
+Still.js:33 set video time to 8.715999
+Still.js:33 set video time to 8.755999
+Still.js:33 set video time to 8.795999
+Still.js:33 set video time to 8.835999
+Still.js:33 set video time to 8.875999
+Still.js:33 set video time to 8.915999
+Still.js:33 set video time to 8.955999
+Still.js:33 set video time to 8.995999
+Still.js:33 set video time to 9.035999
+Still.js:33 set video time to 9.075999
+Still.js:33 set video time to 9.115999
+Still.js:33 set video time to 9.155999
+Still.js:33 set video time to 9.195999
+Still.js:33 set video time to 9.235999
+Still.js:33 set video time to 9.275999
+Still.js:33 set video time to 9.315999
+Still.js:33 set video time to 9.355999
+Still.js:33 set video time to 9.395999
+Still.js:33 set video time to 9.435999
+Still.js:33 set video time to 9.475999
+Still.js:33 set video time to 9.515999
+Still.js:33 set video time to 9.555999
+Still.js:33 set video time to 9.595999
+Still.js:33 set video time to 9.635999
+Still.js:33 set video time to 9.675999
+Still.js:33 set video time to 9.715999
+Still.js:33 set video time to 9.755999
+Still.js:33 set video time to 9.795999
+Still.js:33 set video time to 9.835999
+Still.js:33 set video time to 9.875999
+Still.js:33 set video time to 9.915999
+Still.js:33 set video time to 9.955999
+Still.js:33 set video time to 9.995999
+Still.js:33 set video time to 10.035999
+Still.js:33 set video time to 10.075999
+Still.js:33 set video time to 10.115999
+Still.js:33 set video time to 10.155999
+Still.js:33 set video time to 10.195999
+Still.js:33 set video time to 10.235999
+Still.js:33 set video time to 10.275999
+Still.js:33 set video time to 10.315999
+Still.js:33 set video time to 10.355999
+Still.js:33 set video time to 10.395999
+Still.js:33 set video time to 10.435999
+Still.js:33 set video time to 10.475999
+Still.js:33 set video time to 10.515999
+Still.js:33 set video time to 10.555999
+Still.js:33 set video time to 10.595999
+Still.js:33 set video time to 10.635999
+Still.js:33 set video time to 10.675999
+Still.js:33 set video time to 10.715999
+Still.js:33 set video time to 10.755999
+Still.js:33 set video time to 10.795999
+Still.js:33 set video time to 10.835999
+Still.js:33 set video time to 10.875999
+Still.js:33 set video time to 10.915999
+Still.js:33 set video time to 10.955999
+Still.js:33 set video time to 10.995999
+Still.js:33 set video time to 11.035999
+Still.js:33 set video time to 11.075999
+Still.js:33 set video time to 11.115999
+Still.js:33 set video time to 11.155999
+Still.js:33 set video time to 11.195999
+Still.js:33 set video time to 11.235999
+Still.js:33 set video time to 11.275999
+Still.js:33 set video time to 11.315999
+Still.js:33 set video time to 11.355999
+Still.js:33 set video time to 11.395999
+Still.js:33 set video time to 11.435999
+Still.js:33 set video time to 11.475999
+Still.js:33 set video time to 11.515999
+Still.js:33 set video time to 11.555999
+Still.js:33 set video time to 11.595999
+Still.js:33 set video time to 11.635999
+Still.js:33 set video time to 11.675999
+Still.js:33 set video time to 11.715999
+Still.js:33 set video time to 11.755999
+Still.js:33 set video time to 11.795999
+Still.js:33 set video time to 11.835999
+Still.js:33 set video time to 11.875999
+Still.js:33 set video time to 11.915999
+Still.js:33 set video time to 11.955999
+Still.js:33 set video time to 11.995999
+Still.js:33 set video time to 12.035999
+Still.js:33 set video time to 12.075999
+Still.js:33 set video time to 12.115999
+Still.js:33 set video time to 12.155999
+Still.js:33 set video time to 12.195999
+Still.js:33 set video time to 12.235999
+Still.js:33 set video time to 12.275999
+Still.js:33 set video time to 12.315999
+Still.js:33 set video time to 12.355999
+Still.js:33 set video time to 12.395999
+Still.js:33 set video time to 12.435999
+Still.js:33 set video time to 12.475999
+Still.js:33 set video time to 12.515999
+Still.js:33 set video time to 12.555999
+Still.js:33 set video time to 12.595999
+Still.js:33 set video time to 12.635999
+Still.js:33 set video time to 12.675999
+Still.js:33 set video time to 12.715999
+Still.js:33 set video time to 12.755999
+Still.js:33 set video time to 12.795999
+Still.js:33 set video time to 12.835999
+Still.js:33 set video time to 12.875999
+Still.js:33 set video time to 12.915999
+Still.js:33 set video time to 12.955999
+Still.js:33 set video time to 12.995999
+Still.js:33 set video time to 13.035999
+Still.js:33 set video time to 13.075999
+Still.js:33 set video time to 13.115999
+Still.js:33 set video time to 13.155999
+Still.js:33 set video time to 13.195999
+Still.js:33 set video time to 13.235999
+Still.js:33 set video time to 13.275999
+Still.js:33 set video time to 13.315999
+Still.js:33 set video time to 13.355999
+Still.js:33 set video time to 13.395999
+Still.js:33 set video time to 13.435999
+Still.js:33 set video time to 13.475999
+Still.js:33 set video time to 13.515999
+Still.js:33 set video time to 13.555999
+Still.js:33 set video time to 13.595999
+Still.js:33 set video time to 13.635999
+Still.js:33 set video time to 13.675999
+Still.js:33 set video time to 13.715999
+Still.js:33 set video time to 13.755999
+Still.js:33 set video time to 13.795999
+Still.js:33 set video time to 13.835999
+Still.js:33 set video time to 13.875999
+Still.js:33 set video time to 13.915999
+Still.js:33 set video time to 13.955999
+Still.js:33 set video time to 13.995999
+Still.js:33 set video time to 14.035999
+Still.js:33 set video time to 14.075999
+Still.js:33 set video time to 14.115999
+Still.js:33 set video time to 14.155999
+Still.js:33 set video time to 14.195999
+Still.js:33 set video time to 14.235999
+Still.js:33 set video time to 14.275999
+Still.js:33 set video time to 14.315999
+Still.js:33 set video time to 14.355999
+Still.js:33 set video time to 14.395999
+Still.js:33 set video time to 14.435999
+Still.js:33 set video time to 14.475999
+Still.js:33 set video time to 14.515999
+Still.js:33 set video time to 14.555999
+Still.js:33 set video time to 14.595999
+Still.js:33 set video time to 14.635999
+Still.js:33 set video time to 14.675999
+Still.js:33 set video time to 14.715999
+Still.js:33 set video time to 14.755999
+Still.js:33 set video time to 14.795999
+Still.js:33 set video time to 14.835999
+Still.js:33 set video time to 14.875999
