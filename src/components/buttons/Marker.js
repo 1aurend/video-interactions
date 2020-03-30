@@ -2,7 +2,6 @@ import React from 'react'
 
 export default function Marker(props) {
   const { player, setMarker, marker, type } = props
-  console.log(marker);
   const buttonText = !type ? 'add marker' : marker ? 'clear ' + type + ' point' : 'set ' + type + ' point'
 
   const setClear = () => {

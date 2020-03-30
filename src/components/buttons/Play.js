@@ -1,9 +1,13 @@
-import React, { useState, useEffect } from 'react'
+import React, { useState, useEffect, useContext } from 'react'
+import Timer from '../Timer'
+import { Playing, SetPlaying } from '../data/Context'
 
 export default function PlayButton(props) {
-  const { player } = props
-  const [ playing, setPlaying ] = useState(false)
+  const { player, currentTime, setCurrentTime } = props
+  const playing = useContext(Playing)
+  const setPlaying = useContext(SetPlaying)
   const buttonText = playing ? 'pause' : 'play'
+  console.log(playing);
 
   useEffect(() => {
     player.current.on('play', () => {
@@ -17,7 +21,7 @@ export default function PlayButton(props) {
       thisPlayer.off('play')
       thisPlayer.off('pause')
     }
-  }, [player])
+  }, [player, setPlaying])
 
   const playPause = () => {
     switch (playing) {
@@ -30,10 +34,19 @@ export default function PlayButton(props) {
       setPlaying(false)
       break
     default:
-      alert('oops! a playback error occurred')
+      console.log('oops! a playback error occurred')
       break
     }
   }
 
-  return <button onClick={playPause}>{buttonText}</button>
+  return (
+    <>
+    <div>
+      <button onClick={playPause}>{buttonText}</button>
+    </div>
+    <div>
+      <Timer player={player} playing={playing} currentTime={currentTime} setCurrentTime={setCurrentTime} />
+    </div>
+    </>
+  )
 }

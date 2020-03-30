@@ -1,8 +1,10 @@
-import React, { useState, useReducer, useEffect } from 'react'
+import React, { useState, useReducer, useEffect, useContext } from 'react'
 import VimeoPlayer from './Vimeo'
 import Still from './Still'
 import Layout from './Layout'
-import Scrubber from './Scrubber'
+import { Markers, UpdateMarkers } from './data/Context'
+import TextPane from './TextPane'
+
 
 const segmentReducer = (segment, action) => {
   switch (action.type) {
@@ -18,11 +20,13 @@ const segmentReducer = (segment, action) => {
 const markerReducer = (marker, action) => {
   switch (action.type) {
   case 'set':
-    return action.secs
+    return {ts: action.secs}
+  case 'comment':
+    return {...marker, text: action.text}
   case 'fwdFrame':
-    return marker+.04
+    return {...marker, ts: marker.ts+.04}
   case 'bwdFrame':
-    return marker-.04
+    return {...marker, ts: marker.ts-.04}
   case 'clear':
     return null
   default:
@@ -32,20 +36,35 @@ const markerReducer = (marker, action) => {
 
 export default function VideoMachine() {
   const [thisMarker, setMarker] = useReducer(markerReducer, null)
-  const [markers, updateMarkers] = useState([])
-  const [currentSegment, setCurrentSegment] = useReducer(segmentReducer, {in: '', out: '', angle: 'A'})
+  const markers = useContext(Markers)
+  const updateMarkers = useContext(UpdateMarkers)
+  const [showComment, setShowComment] = useState('')
+  const [time, setTime] = useState(null)
+  const [currentTime, setCurrentTime] = useState(0)
+  const [playBackComments, setPlayBackComments] = useState(false)
+  // const [currentSegment, setCurrentSegment] = useReducer(segmentReducer, {in: '', out: '', angle: 'A'})
+  const buttonText = playBackComments ? 'turn off comment feed' : 'enable comment feed'
 
   useEffect(() => {
-    if (thisMarker && thisMarker !== markers[markers.length-1]) {
+    if (thisMarker?.text) {
       updateMarkers([...markers, thisMarker])
+      setMarker({type: 'clear'})
     }
-  }, [thisMarker, markers])
-  console.log(markers);
+  }, [thisMarker, markers, updateMarkers])
+
+  const onClickMarker = (index) => {
+    setShowComment(`[${markers[index].ts}] ${markers[index].text}`)
+    setTime(markers[index].ts)
+  }
 
   return (
     <Layout>
       <div style={{display: 'flex', flexDirection: 'row', width: '100%', justifyContent: 'left'}}>
-        <VimeoPlayer setMarker={setMarker} marker={thisMarker} markers={markers}/>
+        <VimeoPlayer setMarker={setMarker} marker={thisMarker} markers={markers} setShowComment={onClickMarker} time={time} setCurrentTime={setCurrentTime} currentTime={currentTime}/>
+        <button style={{height: '10px', marginLeft: '5%'}} onClick={() => setPlayBackComments(!playBackComments)}>{buttonText}</button>
+        <div>
+          <TextPane showComment={showComment} playBackComments={playBackComments} />
+        </div>
       </div>
       {/*<Still time={marker} moveOneFrame={setMarker} setSegment={setCurrentSegment} setMarker={setMarker} />*/}
     </Layout>
