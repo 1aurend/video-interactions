@@ -1,4 +1,4 @@
-import React, { useRef, useEffect, useState, useCallback } from 'react'
+import React, { useRef, useEffect, useState, useCallback, useContext } from 'react'
 import Player from '@vimeo/player'
 import Mute from './buttons/Mute'
 import Play from './buttons/Play'
@@ -6,6 +6,7 @@ import Marker from './buttons/Marker'
 import Scrubber from './Scrubber'
 import Timer from './Timer'
 import CommentMarker from './buttons/CommentMarker'
+import {SessionData} from './data/Context'
 
 
 export default function VimeoPlayer({ setMarker, marker, markers, setShowComment, time, currentTime, setCurrentTime }) {
@@ -13,6 +14,7 @@ export default function VimeoPlayer({ setMarker, marker, markers, setShowComment
   const player = useRef()
   const [ready, setReady] = useState(false)
   const [duration, setDuration] = useState()
+  const updateSession = useContext(SessionData)
 
   const videoRef = useCallback(node => {
     if (node !== null) {
@@ -33,6 +35,7 @@ export default function VimeoPlayer({ setMarker, marker, markers, setShowComment
       player.current.getDuration().then( secs => {
         setDuration(secs)
       })
+      updateSession({type: 'setVideoID', id: '371464763'})
       setReady(true)
     })()
   }, [])

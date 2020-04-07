@@ -1,0 +1,31 @@
+"videos": {
+  "vimeoId": {
+    "sessions": {
+      "uid": true,
+      "uid": true,
+    }
+  }
+}
+
+
+"sessions": {
+  "uid": {
+    "video": "vimeoId",
+    "user": "username",
+    "comments": [
+      {
+        "ts": timestamp,
+        "text": ''
+      }
+    ]
+  }
+}
+
+"users": {
+  "username": {
+    "sessions": {
+      "uid": true,
+      "uid": true,
+    }
+  }
+}

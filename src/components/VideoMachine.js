@@ -2,7 +2,7 @@ import React, { useState, useReducer, useEffect, useContext } from 'react'
 import VimeoPlayer from './Vimeo'
 import Still from './Still'
 import Layout from './Layout'
-import { Markers, UpdateMarkers } from './data/Context'
+import { Markers, UpdateMarkers, SessionData } from './data/Context'
 import TextPane from './TextPane'
 
 
@@ -38,6 +38,7 @@ export default function VideoMachine() {
   const [thisMarker, setMarker] = useReducer(markerReducer, null)
   const markers = useContext(Markers)
   const updateMarkers = useContext(UpdateMarkers)
+  const updateSession = useContext(SessionData)
   const [showComment, setShowComment] = useState('')
   const [time, setTime] = useState(null)
   const [currentTime, setCurrentTime] = useState(0)
@@ -47,7 +48,7 @@ export default function VideoMachine() {
 
   useEffect(() => {
     if (thisMarker?.text) {
-      updateMarkers([...markers, thisMarker])
+      updateSession({type: 'addComment', comment: thisMarker})
       setMarker({type: 'clear'})
     }
   }, [thisMarker, markers, updateMarkers])
