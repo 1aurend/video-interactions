@@ -6,7 +6,7 @@ import Marker from './buttons/Marker'
 import Scrubber from './Scrubber'
 import Timer from './Timer'
 import CommentMarker from './buttons/CommentMarker'
-import {SessionData} from './data/Context'
+import { SessionData } from './data/Context'
 
 
 export default function VimeoPlayer({ setMarker, marker, markers, setShowComment, time, currentTime, setCurrentTime }) {
@@ -14,7 +14,7 @@ export default function VimeoPlayer({ setMarker, marker, markers, setShowComment
   const player = useRef()
   const [ready, setReady] = useState(false)
   const [duration, setDuration] = useState()
-  const updateSession = useContext(SessionData)
+  const videoID = useContext(SessionData).video
 
   const videoRef = useCallback(node => {
     if (node !== null) {
@@ -25,7 +25,7 @@ export default function VimeoPlayer({ setMarker, marker, markers, setShowComment
   useEffect(() => {
     (async () => {
        player.current = await new Player(container.current, {
-          id: '371464763',
+          id: videoID,
           width: '1000px',
           height: '600px',
           controls: true,
@@ -35,7 +35,6 @@ export default function VimeoPlayer({ setMarker, marker, markers, setShowComment
       player.current.getDuration().then( secs => {
         setDuration(secs)
       })
-      updateSession({type: 'setVideoID', id: '371464763'})
       setReady(true)
     })()
   }, [])

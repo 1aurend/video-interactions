@@ -3,7 +3,12 @@
     "sessions": {
       "uid": true,
       "uid": true,
-    }
+    },
+    "vimeoId": {
+      "sessions": {
+        "uid": true,
+        "uid": true,
+      }
   }
 }
 
@@ -12,16 +17,45 @@
   "uid": {
     "video": "vimeoId",
     "user": "username",
-    "comments": [
-      {
-        "ts": timestamp,
-        "text": ''
-      }
-    ]
+    "comments": {
+      "0":
+        {
+          "ts": timestamp,
+          "text": 'this is a comment'
+        },
+      "1":
+        {
+          "ts": timestamp,
+          "text": 'this is a comment'
+        }
+    }
+  },
+  "uid": {
+    "video": "vimeoId",
+    "user": "username",
+    "comments": {
+      "0":
+        {
+          "ts": timestamp,
+          "text": 'this is a comment'
+        },
+      "1":
+        {
+          "ts": timestamp,
+          "text": 'this is a comment'
+        }
+    }
   }
 }
 
+
 "users": {
+  "username": {
+    "sessions": {
+      "uid": true,
+      "uid": true,
+    }
+  },
   "username": {
     "sessions": {
       "uid": true,
