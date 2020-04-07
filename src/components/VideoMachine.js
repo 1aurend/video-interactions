@@ -63,24 +63,10 @@ export default function VideoMachine() {
         <VimeoPlayer setMarker={setMarker} marker={thisMarker} markers={markers} setShowComment={onClickMarker} time={time} setCurrentTime={setCurrentTime} currentTime={currentTime}/>
         <button style={{height: '10px', marginLeft: '5%'}} onClick={() => setPlayBackComments(!playBackComments)}>{buttonText}</button>
         <div>
-          <TextPane showComment={showComment} playBackComments={playBackComments} />
+          <TextPane showComment={showComment} playBackOn={playBackComments} time={currentTime} />
         </div>
       </div>
       {/*<Still time={marker} moveOneFrame={setMarker} setSegment={setCurrentSegment} setMarker={setMarker} />*/}
     </Layout>
   )
 }
-
-
-// const moveOneFrame = val => {
-//   switch (val) {
-//     case '+':
-//       setmarker(marker+.04)
-//       break
-//     case '-':
-//       setmarker(marker-.04)
-//       break
-//     default:
-//       alert('something went wrong switching frames')
-//   }
-// }

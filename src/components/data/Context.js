@@ -4,8 +4,7 @@ import StartMenu from '../Start'
 import Firebase from 'firebase'
 import firebaseConfig from './config'
 
-// export const Markers = React.createContext()
-// export const UpdateMarkers = React.createContext()
+
 export const Playing = React.createContext()
 export const SetPlaying = React.createContext()
 export const updateSessionData = React.createContext()
@@ -15,12 +14,12 @@ export const SessionData = React.createContext()
 export default function DataContext() {
   const initialData =
     {
+      sessionID: '',
       video: '',
       username: 'anonymous',
       comments: [],
-      sessionID: ''
+      segments: []
     }
-  // const [markers, updateMarkers] = useState([])
   const [playing, setPlaying] = useState(false)
   const [session, updateSession] = useReducer(dataReducer, initialData)
 

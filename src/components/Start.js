@@ -21,7 +21,7 @@ export default function StartMenu() {
   }
   return (
     <div>
-      <h2>Video Anotation Machine</h2>
+      <h2>Video Interaction Machine</h2>
       <p>enter a username and Vimeo video ID to begin</p>
       <input type='text' placeholder='username' value={username} onChange={e => setUsername(e.target.value)}></input>
       <input type='text' placeholder='video ID' value={vimeoID} onChange={e => setVimeoID(e.target.value)}></input>

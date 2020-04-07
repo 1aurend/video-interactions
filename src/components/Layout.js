@@ -5,7 +5,7 @@ import styled from 'styled-components'
 export default function Layout({ children }) {
   return (
     <div style={{height: '100%'}}>
-      <h2>Prototype of Video Marker Machine</h2>
+      <h2>Video Interaction Machine Prototype</h2>
       {children}
     </div>
   )
