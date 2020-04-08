@@ -10,15 +10,16 @@ export default function TextPane({ showComment, playBackOn, time }) {
 
   useEffect(() => {
     if (playBackOn && (time < prevTime.current)) {
-      setVisible(comments.filter( comment => comment.ts <= time))
-      counter.current = visible.length
+      const nowVisible = comments.filter(comment => comment.ts <= time)
+      setVisible(nowVisible)
+      counter.current = nowVisible.length
     }
     if (playBackOn && (time >= comments[counter.current]?.ts)) {
-      setVisible([...visible, comments[counter.current]])
+      setVisible(visible => visible.concat(comments[counter.current]))
       counter.current = counter.current+1
       prevTime.current = time
     }
-  }, [time, comments, playBackOn, visible])
+  }, [time, comments, playBackOn, setVisible])
 
   if (playBackOn) {
     return visible.map(comment => <p style={{marginLeft: '5%'}}>[{comment.ts}] {comment.text}</p>)
