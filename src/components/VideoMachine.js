@@ -34,6 +34,7 @@ const markerReducer = (marker, action) => {
   }
 }
 
+
 export default function VideoMachine() {
   const [thisMarker, setMarker] = useReducer(markerReducer, null)
   const updateSession = useContext(updateSessionData)
