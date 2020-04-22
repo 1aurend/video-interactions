@@ -13,7 +13,7 @@ export default function TextPane({ showComment, playBackOn, time }) {
   useEffect(() => {
     let sessions = []
     if (playBackOn) {
-      firebase.database().ref(`/videos/${videoID}/sessions`).once('value').then(snapshot => {
+      firebase.database().ref(`/videos/${videoID}/sessions`).on('value', snapshot => {
         const data = snapshot.val()
         sessions = Object.keys(data)
         sessions.forEach(id => {
@@ -24,7 +24,9 @@ export default function TextPane({ showComment, playBackOn, time }) {
         })
       })
     }
-    return () => {sessions.forEach(id => {
+    return () => {
+      firebase.database().ref(`/videos/${videoID}/sessions`).off()
+      sessions.forEach(id => {
       const idRef = firebase.database().ref(`/sessions/${id}/comments`)
       idRef.off()
     })}
