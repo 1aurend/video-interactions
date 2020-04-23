@@ -7,7 +7,7 @@ import Scrubber from './Scrubber'
 import Timer from './Timer'
 import CommentMarker from './buttons/CommentMarker'
 import { SessionData } from './data/Context'
-
+import { buttonStyle, commentStyle } from './styles.js'
 
 export default function VimeoPlayer({ setMarker, marker, markers, setShowComment, time, currentTime, setCurrentTime }) {
   const container = useRef(document.createElement('div'))
@@ -57,17 +57,18 @@ export default function VimeoPlayer({ setMarker, marker, markers, setShowComment
           <Scrubber markers={markers} duration={duration} setShowComment={setShowComment} />
           <Mute player={player}/>
           <Play player={player} onPause={setMarker} setCurrentTime={setCurrentTime} currentTime={currentTime}/>
-          <label for='time'>jump to: </label>
-          <input id='time' type='text' onChange={e => input.current = e.target.value} placeholder='0.00'></input>
-          <button onClick={() => {
-              setCurrentTime(input.current)
-              player.current.setCurrentTime(input.current)
-            }}>go!</button>
+
           <div style={{marginTop: '1%'}}>
             {/*<Marker player={player} setMarker={setMarker} marker={marker} type={'in'}/>
           <Marker player={player} setMarker={setMarker} marker={marker} type={'out'}/>*/}
             <CommentMarker player={player} setMarker={setMarker} marker={marker} />
           </div>
+          <label style={commentStyle} for='time'>jump to: </label>
+          <input style={commentStyle} id='time' type='text' onChange={e => input.current = e.target.value} placeholder='0.00'></input>
+          <button style={buttonStyle} onClick={() => {
+              setCurrentTime(input.current)
+              player.current.setCurrentTime(input.current)
+            }}>go!</button>
           </>
         }
     </div>

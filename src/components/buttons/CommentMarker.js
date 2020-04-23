@@ -1,4 +1,5 @@
 import React, { useState } from 'react'
+import { buttonStyle, inputStyle } from '../styles.js'
 
 export default function CommentMarker(props) {
   const { player, setMarker } = props
@@ -21,11 +22,11 @@ export default function CommentMarker(props) {
 
   return (
     <>
-      <button onClick={openInput}>{buttonText}</button>
+      <button style={buttonStyle} onClick={openInput}>{buttonText}</button>
       {inputOpen &&
         <>
-          <input type='text' onChange={(e) => setCommentText(e.target.value)}></input>
-          <button onClick={saveComment}>save</button>
+          <input style={inputStyle} type='text' onChange={(e) => setCommentText(e.target.value)}></input>
+          <button style={buttonStyle} onClick={saveComment}>save</button>
         </>
       }
     </>

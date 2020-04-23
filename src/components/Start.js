@@ -1,7 +1,7 @@
 import React, { useState, useContext } from 'react'
 import { updateSessionData } from './data/Context'
 import VideoMachine from './VideoMachine'
-
+import { commentStyle, buttonStyle, inputStyle, titleStyle } from './styles.js'
 
 export default function StartMenu() {
   const [username, setUsername] = useState('')
@@ -21,11 +21,11 @@ export default function StartMenu() {
   }
   return (
     <div>
-      <h2>Video Interaction Machine</h2>
-      <p>enter a username and Vimeo video ID to begin</p>
-      <input type='text' placeholder='username' value={username} onChange={e => setUsername(e.target.value)}></input>
-      <input type='text' placeholder='video ID' value={vimeoID} onChange={e => setVimeoID(e.target.value)}></input>
-      <button onClick={onGo}>go!</button>
+      <h2 style={titleStyle}>Video Interaction Machine</h2>
+      <p style={commentStyle}>Enter a Username and Vimeo Video ID to begin!</p>
+      <input style={inputStyle} type='text' placeholder='username' value={username} onChange={e => setUsername(e.target.value)}></input>
+      <input style={inputStyle} type='text' placeholder='video ID' value={vimeoID} onChange={e => setVimeoID(e.target.value)}></input>
+      <button style={buttonStyle} onClick={onGo}>go!</button>
     </div>
   )
 }

@@ -1,4 +1,5 @@
 import React from 'react'
+import { buttonStyle } from '../styles.js'
 
 export default function Marker(props) {
   const { player, setMarker, marker, type } = props
@@ -26,5 +27,5 @@ export default function Marker(props) {
     })
   }
 
-  return <button onClick={setClear}>{buttonText}</button>
+  return <button style={buttonStyle} onClick={setClear}>{buttonText}</button>
 }

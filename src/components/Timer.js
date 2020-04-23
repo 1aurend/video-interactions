@@ -1,6 +1,6 @@
 import React, { useEffect, useState, useContext } from 'react'
 import { Playing } from './data/Context'
-
+import { commentStyle } from './styles.js'
 
 export default function Timer({ player, setCurrentTime, currentTime }) {
   const playing = useContext(Playing)
@@ -16,6 +16,6 @@ export default function Timer({ player, setCurrentTime, currentTime }) {
   }, [setCurrentTime, player, playing])
 
   return (
-    <p>Time: {currentTime}</p>
+    <p style={commentStyle}>Time: {currentTime}</p>
   )
 }

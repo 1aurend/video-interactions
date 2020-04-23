@@ -1,6 +1,7 @@
 import React, { useState, useEffect, useContext } from 'react'
 import Timer from '../Timer'
 import { Playing, SetPlaying } from '../data/Context'
+import { buttonStyle } from '../styles.js'
 
 export default function PlayButton(props) {
   const { player, currentTime, setCurrentTime } = props
@@ -42,7 +43,7 @@ export default function PlayButton(props) {
   return (
     <>
     <div>
-      <button onClick={playPause}>{buttonText}</button>
+      <button style={buttonStyle} onClick={playPause}>{buttonText}</button>
     </div>
     <div>
       <Timer player={player} playing={playing} currentTime={currentTime} setCurrentTime={setCurrentTime} />

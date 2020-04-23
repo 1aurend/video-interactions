@@ -1,7 +1,7 @@
 import React, { useEffect, useContext, useRef, useState } from 'react'
 import { SessionData } from './data/Context'
 import firebase from 'firebase'
-
+import { commentStyle } from './styles.js'
 
 export default function TextPane({ showComment, playBackOn, currentTime }) {
   const comments = useContext(SessionData).comments
@@ -75,7 +75,7 @@ export default function TextPane({ showComment, playBackOn, currentTime }) {
   return (
     <>
     {(playBackOn) &&
-      <div>
+      <div style={commentStyle}>
       {items}
       </div>
     }

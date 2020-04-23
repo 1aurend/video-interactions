@@ -12,6 +12,7 @@ const calculateMarkerPosition = (ts, duration, index) => {
 }
 
 export default function Scrubber({ markers, duration, setShowComment }) {
+
   const markerIcons = markers.map( (marker, i) => {
     return <div
               key={i}
@@ -19,7 +20,8 @@ export default function Scrubber({ markers, duration, setShowComment }) {
               style={{
                 width: '5px',
                 height: '1em',
-                backgroundColor: 'black',
+                backgroundColor: 'white',
+                boxShadow: '1px 1px 1px 1px #142952',
                 left: calculateMarkerPosition(marker.ts, duration, i),
                 marginTop: '-2px',
                 position: 'relative'
@@ -27,7 +29,7 @@ export default function Scrubber({ markers, duration, setShowComment }) {
             </div>
           })
   return (
-      <div style={{display: 'flex', flexDirection: 'row', justifyContent: 'left', width: '100%', height: '2em', backgroundColor: '#0EBFE9', borderTop: '5px solid white', marginBottom: '2%'}}>
+      <div style={{display: 'flex', flexDirection: 'row', justifyContent: 'left', width: '100%', height: '2em', backgroundColor: '#98b2e6', borderTop: '5px solid white', marginBottom: '2%'}}>
         {markerIcons}
       </div>
   )

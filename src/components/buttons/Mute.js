@@ -1,4 +1,5 @@
 import React, { useState } from 'react'
+import { buttonStyle } from '../styles.js'
 
 export default function MuteButton(props) {
   const { player } = props
@@ -10,5 +11,5 @@ export default function MuteButton(props) {
     setVolume(1-volume)
   }
 
-  return <button onClick={muteUnmute}>{buttonText}</button>
+  return <button style={buttonStyle} onClick={muteUnmute}>{buttonText}</button>
 }

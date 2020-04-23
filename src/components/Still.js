@@ -1,6 +1,7 @@
 import React, { useRef, useEffect, useState, useCallback, useContext } from 'react'
 import Player from '@vimeo/player'
 import { Dispatch } from './data/Context'
+import { buttonStyle } from './styles.js'
 
 
 export default function Still({ time, moveOneFrame, setSegment, setMarker }) {
@@ -44,10 +45,10 @@ export default function Still({ time, moveOneFrame, setSegment, setMarker }) {
         {ready &&
           <div style={{display: 'flex', flexDirection: 'column', justifyContent: 'top', marginLeft: '50px'}}>
           <div ref={videoRef}></div>
-          <button style={{width: '100px'}} onClick={() => moveOneFrame({type: 'bwdFrame'})}>previous frame</button>
-          <button style={{width: '100px'}} onClick={() => moveOneFrame({type: 'fwdFrame'})}>next frame</button>
+          <button style={buttonStyle} onClick={() => moveOneFrame({type: 'bwdFrame'})}>previous frame</button>
+          <button style={buttonStyle} onClick={() => moveOneFrame({type: 'fwdFrame'})}>next frame</button>
           <button
-            style={{width: '100px'}}
+            style={buttonStyle}
             onClick={() => {
               setSegment({type: 'setInPoint', time: time})
               setMarker({type: 'reset'})}
