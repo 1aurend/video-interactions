@@ -3,13 +3,14 @@ import { SessionData } from './data/Context'
 import firebase from 'firebase'
 
 
-export default function TextPane({ showComment, playBackOn, time }) {
+export default function TextPane({ showComment, playBackOn, currentTime }) {
   const comments = useContext(SessionData).comments
   const videoID = useContext(SessionData).video
   const counter = useRef(0)
   const [visible, setVisible] = useState([])
   const prevTime = useRef()
   const [commentRoll, setCommentRoll] = useState([])
+  const [matchComments, setMatch] = useState([])
 
   useEffect(() => {
   let sessions = []
@@ -47,30 +48,30 @@ export default function TextPane({ showComment, playBackOn, time }) {
 }, [playBackOn, videoID])
   console.log(commentRoll)
 
-  const items = commentRoll.map((array, i) => {
-      return <p key={i}>{array.text} {array.ts}</p>
+  const items = matchComments.map((array, i) => {
+      return <p key={i}>{array.text} {array.time}</p>
     })
   console.log(items)
-  // useEffect(() => {
-  //   if (playBackOn && (time < prevTime.current)) {
-  //     const nowVisible = comments.filter(comment => comment.ts <= time)
-  //     setVisible(nowVisible)
-  //     counter.current = nowVisible.length
-  //   }
-  //   if (playBackOn && (time >= comments[counter.current]?.ts)) {
-  //     setVisible(visible => visible.concat(comments[counter.current]))
-  //     counter.current = counter.current+1
-  //     prevTime.current = time
-  //   }
-  // }, [time, comments, playBackOn, setVisible])
 
-//   if (playBackOn) {
-//       return commentRoll.map(comment => <p style={{marginLeft: '5%'}}>[{comment.ts}] {comment.text}</p>)
-//     }
-//     return (
-//       <p style={{marginLeft: '5%'}}>{showComment}</p>
-//     )
-// }
+
+    useEffect(() => {
+      for (const comment in commentRoll) {
+        console.log(commentRoll[comment].ts)
+        console.log(commentRoll[comment].text)
+        if (currentTime + .1 >= commentRoll[comment].ts && currentTime - .1 <= commentRoll[comment].ts) {
+          if (matchComments.length > 0) {
+            console.log("first if")
+            if (commentRoll[comment].text === matchComments[matchComments.length - 1].text) {
+              break
+            }
+          }
+          console.log("match!")
+          setMatch(matchComments => [...matchComments, {time: commentRoll[comment].ts, text: commentRoll[comment].text}])
+          }
+        }
+      }, [currentTime, commentRoll])
+
+
   return (
     <>
     {(playBackOn) &&

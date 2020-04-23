@@ -64,7 +64,7 @@ export default function VideoMachine() {
         <VimeoPlayer setMarker={setMarker} marker={thisMarker} markers={markers} setShowComment={onClickMarker} time={time} setCurrentTime={setCurrentTime} currentTime={currentTime}/>
         <button style={{height: '10px', marginLeft: '5%'}} onClick={() => setPlayBackComments(!playBackComments)}>{buttonText}</button>
         <div>
-          <TextPane showComment={showComment} playBackOn={playBackComments} time={currentTime} />
+          <TextPane showComment={showComment} playBackOn={playBackComments} currentTime={currentTime} />
         </div>
       </div>
       {/*<Still time={marker} moveOneFrame={setMarker} setSegment={setCurrentSegment} setMarker={setMarker} />*/}
