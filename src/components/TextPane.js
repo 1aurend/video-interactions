@@ -11,72 +11,80 @@ export default function TextPane({ showComment, playBackOn, currentTime }) {
   const prevTime = useRef()
   const [commentRoll, setCommentRoll] = useState([])
   const [matchComments, setMatch] = useState([])
+  const items = useRef()
 
   useEffect(() => {
-  let sessions = []
-  let commentArrays = []
-  if (playBackOn) {
-    firebase.database().ref(`/videos/${videoID}/sessions`).on('value', snapshot => {
-      const data = snapshot.val()
-      sessions = Object.keys(data)
-      sessions.forEach(id => {
-        const idRef = firebase.database().ref(`/sessions/${id}/comments`)
-        idRef.on('value', (snapshot) => {
-          console.log(snapshot.val())
-          commentArrays.push(snapshot.val())
-          if (snapshot.val()) {
-            var i
-            for (i = 0; i < snapshot.val().length; i++) {
-              console.log(snapshot.val()[i].text)
-              const commentToAdd = snapshot.val()[i].text
-              const tsToAdd = snapshot.val()[i].ts
-              console.log(commentToAdd)
-              setCommentRoll(commentRoll => [...commentRoll, {text: commentToAdd, ts: tsToAdd}])
+    let sessions = []
+    let commentArrays = []
+    if (playBackOn) {
+      firebase.database().ref(`/videos/${videoID}/sessions`).on('value', snapshot => {
+        const data = snapshot.val()
+        sessions = Object.keys(data)
+        sessions.forEach(id => {
+          const idRef = firebase.database().ref(`/sessions/${id}/comments`)
+          idRef.on('value', (snapshot) => {
+            if (snapshot.val()) {
+              var i
+              for (i = 0; i < snapshot.val().length; i++) {
+                const commentToAdd = snapshot.val()[i].text
+                const tsToAdd = snapshot.val()[i].ts
+                commentArrays.push({text: commentToAdd, ts: tsToAdd})
+              }
             }
-          }
+          })
+          setCommentRoll(commentArrays)
         })
-        return commentArrays
       })
-    })
-  }
-  return () => {
-    firebase.database().ref(`/videos/${videoID}/sessions`).off()
-    sessions.forEach(id => {
-    const idRef = firebase.database().ref(`/sessions/${id}/comments`)
-    idRef.off()
-  })}
+    }
+    else {
+      setCommentRoll([])
+      setMatch([])
+    }
+    return () => {
+      firebase.database().ref(`/videos/${videoID}/sessions`).off()
+      sessions.forEach(id => {
+      const idRef = firebase.database().ref(`/sessions/${id}/comments`)
+      idRef.off()
+    })}
 }, [playBackOn, videoID])
+  console.log(playBackOn)
   console.log(commentRoll)
 
-  const items = matchComments.map((array, i) => {
-      return <p key={i}>{array.text} {array.time}</p>
-    })
-  console.log(items)
 
 
     useEffect(() => {
-      for (const comment in commentRoll) {
-        console.log(commentRoll[comment].ts)
-        console.log(commentRoll[comment].text)
-        if (currentTime + .1 >= commentRoll[comment].ts && currentTime - .1 <= commentRoll[comment].ts) {
-          if (matchComments.length > 0) {
-            console.log("first if")
-            if (commentRoll[comment].text === matchComments[matchComments.length - 1].text) {
-              break
+      let matchArrays = []
+      if (!playBackOn) {
+        setMatch([])
+      }
+      else {
+        for (const comment in commentRoll) {
+          if (currentTime + .021 >= commentRoll[comment].ts && currentTime - .021 <= commentRoll[comment].ts) {
+            console.log("match!")
+            matchArrays.push({time: commentRoll[comment].ts, text: commentRoll[comment].text})
             }
           }
-          console.log("match!")
-          setMatch(matchComments => [...matchComments, {time: commentRoll[comment].ts, text: commentRoll[comment].text}])
+          console.log(matchArrays)
+          if (matchArrays.length > 0 && matchComments[matchComments.length - 1]?.text !== matchArrays[0]?.text) {
+            const concattor = matchComments.concat(matchArrays)
+            setMatch(concattor)
           }
-        }
+      }
       }, [currentTime, commentRoll])
 
+    useEffect(() => {
+      console.log(matchComments)
+      items.current = matchComments.map((array, i) => {
+          return <p key={i}>{array.text} {array.time}</p>
+        })
+      console.log(items.current)
+    }, [matchComments])
 
   return (
     <>
     {(playBackOn) &&
       <div style={commentStyle}>
-      {items}
+      {items.current}
       </div>
     }
     </>

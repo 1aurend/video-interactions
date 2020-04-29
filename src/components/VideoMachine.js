@@ -61,7 +61,7 @@ export default function VideoMachine() {
   return (
     <Layout>
       <div style={{display: 'flex', flexDirection: 'row', width: '100%', justifyContent: 'left'}}>
-        <VimeoPlayer setMarker={setMarker} marker={thisMarker} markers={markers} setShowComment={onClickMarker} time={time} setCurrentTime={setCurrentTime} currentTime={currentTime}/>
+        <VimeoPlayer setMarker={setMarker} setPlayBackComments={setPlayBackComments} marker={thisMarker} markers={markers} setShowComment={onClickMarker} time={time} setCurrentTime={setCurrentTime} currentTime={currentTime}/>
         <button style={buttonStyle} onClick={() => setPlayBackComments(!playBackComments)}>{buttonText}</button>
         <div>
           <TextPane showComment={showComment} playBackOn={playBackComments} currentTime={currentTime} />
