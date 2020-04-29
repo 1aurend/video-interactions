@@ -4,7 +4,7 @@ import { buttonStyle } from '../styles.js'
 export default function MuteButton(props) {
   const { player } = props
   const [ volume, setVolume ] = useState(1)
-  const buttonText = volume > 0 ? 'mute' : 'umute'
+  const buttonText = volume > 0 ? 'mute' : 'unmute'
 
   const muteUnmute = () => {
     player.current.setVolume(1-volume)
