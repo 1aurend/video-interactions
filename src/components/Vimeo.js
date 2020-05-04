@@ -3,11 +3,12 @@ import Player from '@vimeo/player'
 import Mute from './buttons/Mute'
 import Play from './buttons/Play'
 import Marker from './buttons/Marker'
+import Layout from './Layout'
 import Scrubber from './Scrubber'
 import Timer from './Timer'
 import CommentMarker from './buttons/CommentMarker'
 import { SessionData } from './data/Context'
-import { buttonStyle, commentStyle } from './styles.js'
+import { buttonStyle, commentStyle, videoTitle, r3, r4, p2, p3, p1 } from './styles.js'
 
 export default function VimeoPlayer({ setMarker, marker, markers, setShowComment, setPlayBackComments, time, currentTime, setCurrentTime }) {
   const container = useRef(document.createElement('div'))
@@ -16,12 +17,20 @@ export default function VimeoPlayer({ setMarker, marker, markers, setShowComment
   const [duration, setDuration] = useState()
   const videoID = useContext(SessionData).video
   const input = useRef('')
+  const [theTitle, setTitle] = useState("")
 
   const videoRef = useCallback(node => {
     if (node !== null) {
       node.appendChild(container.current)
     }
   }, [])
+  function getTitle() {
+    player.current.getVideoTitle().then(function(title) {
+        console.log(title)
+        setTitle(title)
+      }
+    )
+  }
 
   useEffect(() => {
     (async () => {
@@ -37,6 +46,7 @@ export default function VimeoPlayer({ setMarker, marker, markers, setShowComment
         setDuration(secs)
       })
       setReady(true)
+      getTitle()
     })()
   }, [])
 
@@ -53,21 +63,25 @@ export default function VimeoPlayer({ setMarker, marker, markers, setShowComment
     <div>
         {ready &&
           <>
-          <div ref={videoRef}></div>
-          <Scrubber markers={markers} duration={duration} setShowComment={setShowComment} />
-          <Mute player={player}/>
-          <Play player={player} onPause={setMarker} setCurrentTime={setCurrentTime} currentTime={currentTime}/>
+          <Layout>
+            <div ref={videoRef}></div>
+            <div style={p1}>
+            <div style={r3}>
+              <div style={videoTitle}>{theTitle}</div>
+                <Play player={player} onPause={setMarker} setCurrentTime={setCurrentTime} currentTime={currentTime}/>
+                <Mute player={player}/>
+                <button style={buttonStyle} onClick={() => {
+                    setPlayBackComments(false)
+                    setCurrentTime(0)
+                    player.current.setCurrentTime(0)
+                  }}>reset</button>
+                  </div>
+                  </div>
+                <div style={p3}>
+                <CommentMarker player={player} setMarker={setMarker} marker={marker} />
 
-          <div style={{marginTop: '1%'}}>
-            {/*<Marker player={player} setMarker={setMarker} marker={marker} type={'in'}/>
-          <Marker player={player} setMarker={setMarker} marker={marker} type={'out'}/>*/}
-            <CommentMarker player={player} setMarker={setMarker} marker={marker} />
-          </div>
-          <button style={buttonStyle} onClick={() => {
-              setPlayBackComments(false)
-              setCurrentTime(0)
-              player.current.setCurrentTime(0)
-            }}>reset!</button>
+                </div>
+              </Layout>
           </>
         }
     </div>

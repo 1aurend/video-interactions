@@ -12,7 +12,12 @@ export default function CommentMarker(props) {
       player.current.pause()
       setMarker({type: 'set', secs: secs})
     })
-    setInputOpen(true)
+    if (!inputOpen) {
+      setInputOpen(true)
+    }
+    else {
+      setInputOpen(false)
+    }
   }
 
   const saveComment = () => {

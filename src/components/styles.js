@@ -17,20 +17,23 @@ export const r2 = {
   justifyContent: "left",
   fontFamily: "'Roboto Slab', serif",
 }
-export const r3 = {
-  display: "flex",
-  flexDirection: "row",
-  justifyContent: "left",
-  fontFamily: "'Roboto Slab', serif",
-}
 
 export const p3 = {
   display: "flex",
   flexDirection: "column",
-  justifyContent: "start",
+  justifyContent: "right",
+  marginLeft: "2px",
+  marginTop: "16px",
   fontFamily: "'Roboto Slab', serif",
 }
-export const p4 = {
+export const r3 = {
+  display: "flex",
+  flexDirection: "row",
+  marginBottom: "5px",
+  justifyContent: "space-evenly",
+  fontFamily: "'Roboto Slab', serif",
+}
+export const r4 = {
   display: "flex",
   flexDirection: "row",
   marginBottom: "5px",
@@ -47,7 +50,7 @@ export const buttonStyle = {
   border: "none",
   boxShadow: "1px 1px #142952",
   color: "white",
-  fontSize: "12px",
+  fontSize: "1em",
   textAlign: "center",
   padding: "2px 10px",
   cursor: "pointer",
@@ -57,10 +60,11 @@ export const commentStyle = {
   fontFamily: "'Montserrat', sans-serif",
   marginTop: "15px",
   color: "#142952",
-  fontSize: "15px",
+  fontSize: "1em",
 }
 export const inputStyle = {
-  padding: "2px 10px",
+  padding: "2x 10px",
+  fontSize: "0.8em",
   marginLeft: "2px",
   marginRight: "2px",
   color: "#142952",
@@ -71,7 +75,7 @@ export const inputStyle = {
 export const panelStyle = {
   marginLeft: "10px",
   color: "#142952",
-  marginTop: "1em"
+  marginTop: "15px"
 }
 export const videoStyle = {
   marginTop: "20px",
@@ -79,14 +83,14 @@ export const videoStyle = {
 export const titleStyle = {
   color: "#98b2e6",
   fontFamily: "'Roboto Slab', serif",
-  fontSize: "1.17em",
+  fontSize: "1.3em",
   textShadow: "1px 1px #142952",
 }
 export const videoTitle = {
   fontFamily: "'Montserrat', sans-serif",
-  marginTop: "15px",
   color: "black",
-  textAlign: "center",
+  marginBottom: "10px",
+  textAlign: "left",
   fontWeight: "bold",
   fontSize: "1.15em",
 }
