@@ -4,7 +4,7 @@ import Still from './Still'
 import Layout from './Layout'
 import { updateSessionData, SessionData } from './data/Context'
 import TextPane from './TextPane'
-import { buttonStyle, p3, p1 } from './styles.js'
+import { buttonStyle } from './styles.js'
 
 const segmentReducer = (segment, action) => {
   switch (action.type) {
@@ -60,14 +60,12 @@ export default function VideoMachine() {
 
   return (
     <Layout>
-      <div style={p1}>
+      <div style={{display: 'flex', flexDirection: 'row', width: '100%', justifyContent: 'left'}}>
         <VimeoPlayer setMarker={setMarker} setPlayBackComments={setPlayBackComments} marker={thisMarker} markers={markers} setShowComment={onClickMarker} time={time} setCurrentTime={setCurrentTime} currentTime={currentTime}/>
-      <div style={p3}>
         <button style={buttonStyle} onClick={() => setPlayBackComments(!playBackComments)}>{buttonText}</button>
         <div>
           <TextPane showComment={showComment} playBackOn={playBackComments} currentTime={currentTime} />
         </div>
-      </div>
       </div>
     </Layout>
   )

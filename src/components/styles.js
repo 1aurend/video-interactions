@@ -1,4 +1,3 @@
-// add button cursor thing
 export const p1 = {
   display: "flex",
   flexDirection: "row",
@@ -26,13 +25,12 @@ export const r3 = {
 export const r3p1 = {
   display: "flex",
   flexDirection: "column",
-  justifyContent: "start"
+  justifyContent: "left"
 }
 export const r3p2 = {
   display: "flex",
   flexDirection: "column",
-  justifyContent: "end"
-
+  justifyContent: "right"
 }
 export const p3 = {
   display: "flex",

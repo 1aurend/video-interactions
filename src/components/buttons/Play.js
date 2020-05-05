@@ -1,7 +1,7 @@
 import React, { useState, useEffect, useContext } from 'react'
 import Timer from '../Timer'
 import { Playing, SetPlaying } from '../data/Context'
-import { buttonStyle, r3, r4 } from '../styles.js'
+import { buttonStyle } from '../styles.js'
 
 export default function PlayButton(props) {
   const { player, currentTime, setCurrentTime } = props
