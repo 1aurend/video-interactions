@@ -14,6 +14,7 @@ export default function CommentMarker(props) {
     })
     if (!inputOpen) {
       setInputOpen(true)
+
     }
     else {
       setInputOpen(false)

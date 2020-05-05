@@ -42,9 +42,7 @@ export default function PlayButton(props) {
 
   return (
     <>
-    <div style={r3}>
       <button style={buttonStyle} onClick={playPause}>{buttonText}</button>
-    </div>
     </>
   )
 }

@@ -69,7 +69,6 @@ export default function VideoMachine() {
         </div>
       </div>
       </div>
-      {/*<Still time={marker} moveOneFrame={setMarker} setSegment={setCurrentSegment} setMarker={setMarker} />*/}
     </Layout>
   )
 }

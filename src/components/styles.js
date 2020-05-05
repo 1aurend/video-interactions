@@ -17,20 +17,29 @@ export const r2 = {
   justifyContent: "left",
   fontFamily: "'Roboto Slab', serif",
 }
+export const r3 = {
+  display: "flex",
+  flexDirection: "row",
+  marginBottom: "5px",
+  fontFamily: "'Roboto Slab', serif",
+}
+export const r3p1 = {
+  display: "flex",
+  flexDirection: "column",
+  justifyContent: "start"
+}
+export const r3p2 = {
+  display: "flex",
+  flexDirection: "column",
+  justifyContent: "end"
 
+}
 export const p3 = {
   display: "flex",
   flexDirection: "column",
   justifyContent: "right",
   marginLeft: "2px",
   marginTop: "16px",
-  fontFamily: "'Roboto Slab', serif",
-}
-export const r3 = {
-  display: "flex",
-  flexDirection: "row",
-  marginBottom: "5px",
-  justifyContent: "space-evenly",
   fontFamily: "'Roboto Slab', serif",
 }
 export const r4 = {

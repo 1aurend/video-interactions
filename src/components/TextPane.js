@@ -17,6 +17,7 @@ export default function TextPane({ showComment, playBackOn, currentTime }) {
     let sessions = []
     let commentArrays = []
     if (playBackOn) {
+      console.log('getting data')
       firebase.database().ref(`/videos/${videoID}/sessions`).on('value', snapshot => {
         const data = snapshot.val()
         sessions = Object.keys(data)
@@ -32,6 +33,7 @@ export default function TextPane({ showComment, playBackOn, currentTime }) {
               }
             }
           })
+          console.log('setting comments')
           setCommentRoll(commentArrays)
         })
       })
@@ -49,19 +51,22 @@ export default function TextPane({ showComment, playBackOn, currentTime }) {
 }, [playBackOn, videoID])
   console.log(playBackOn)
   console.log(commentRoll)
-
+  console.log(matchComments)
 
 
     useEffect(() => {
       let matchArrays = []
       if (!playBackOn) {
+        console.log('setting match')
         setMatch([])
       }
       else {
+        console.log("matching")
         for (const comment in commentRoll) {
           if (currentTime + .021 >= commentRoll[comment].ts && currentTime - .021 <= commentRoll[comment].ts) {
             console.log("match!")
             matchArrays.push({time: commentRoll[comment].ts, text: commentRoll[comment].text})
+            console.log(matchArrays)
             }
           }
           console.log(matchArrays)
@@ -73,6 +78,7 @@ export default function TextPane({ showComment, playBackOn, currentTime }) {
       }, [currentTime, commentRoll])
 
     useEffect(() => {
+      console.log("writing to items")
       console.log(matchComments)
       items.current = matchComments.map((array, i) => {
           return <p key={i}>{array.text} {array.time}</p>

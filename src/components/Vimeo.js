@@ -8,7 +8,7 @@ import Scrubber from './Scrubber'
 import Timer from './Timer'
 import CommentMarker from './buttons/CommentMarker'
 import { SessionData } from './data/Context'
-import { buttonStyle, commentStyle, videoTitle, r3, r4, p2, p3, p1 } from './styles.js'
+import { buttonStyle, commentStyle, videoTitle, r3, r4, p2, p3, p1, r3p1, r3p2 } from './styles.js'
 
 export default function VimeoPlayer({ setMarker, marker, markers, setShowComment, setPlayBackComments, time, currentTime, setCurrentTime }) {
   const container = useRef(document.createElement('div'))
@@ -63,11 +63,12 @@ export default function VimeoPlayer({ setMarker, marker, markers, setShowComment
     <div>
         {ready &&
           <>
-          <Layout>
             <div ref={videoRef}></div>
-            <div style={p1}>
             <div style={r3}>
-              <div style={videoTitle}>{theTitle}</div>
+              <div style={r3p1}>
+                <div style={videoTitle}>{theTitle}</div>
+              </div>
+              <div style={r3p2}>
                 <Play player={player} onPause={setMarker} setCurrentTime={setCurrentTime} currentTime={currentTime}/>
                 <Mute player={player}/>
                 <button style={buttonStyle} onClick={() => {
@@ -76,12 +77,10 @@ export default function VimeoPlayer({ setMarker, marker, markers, setShowComment
                     player.current.setCurrentTime(0)
                   }}>reset</button>
                   </div>
-                  </div>
+                </div>
                 <div style={p3}>
                 <CommentMarker player={player} setMarker={setMarker} marker={marker} />
-
                 </div>
-              </Layout>
           </>
         }
     </div>
