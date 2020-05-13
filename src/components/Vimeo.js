@@ -64,7 +64,6 @@ export default function VimeoPlayer({ setMarker, marker, markers, setShowComment
           <>
           <div ref={videoRef}></div>
           <div style={r3}>
-            <div style={r3}>
               <div style={r3p1}>
                 <div style={videoTitle}>{theTitle}</div>
               </div>
@@ -77,7 +76,6 @@ export default function VimeoPlayer({ setMarker, marker, markers, setShowComment
                     player.current.setCurrentTime(0)
                   }}>reset</button>
                   </div>
-                </div>
                 </div>
                 <div style={p3}>
                 <CommentMarker player={player} setMarker={setMarker} marker={marker} />

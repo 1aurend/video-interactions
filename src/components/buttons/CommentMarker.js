@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import { buttonStyle, inputStyle } from '../styles.js'
+import { buttonStyle, inputStyle, p3 } from '../styles.js'
 
 export default function CommentMarker(props) {
   const { player, setMarker } = props
@@ -13,6 +13,9 @@ export default function CommentMarker(props) {
       setMarker({type: 'set', secs: secs})
     })
     setInputOpen(true)
+    if (buttonText === 'undo comment') {
+      setInputOpen(false)
+    }
   }
 
   const saveComment = () => {

@@ -25,17 +25,24 @@ export const r3 = {
 export const r3p1 = {
   display: "flex",
   flexDirection: "column",
-  justifyContent: "left"
+  justifyContent: "left",
+  paddingRight: "37.5%",
+  width: "50%"
 }
 export const r3p2 = {
   display: "flex",
   flexDirection: "column",
-  justifyContent: "right"
+  justifyContent: "right",
+  paddingLeft: "37.5%",
+  marginRight: "0",
+  width: "50%"
 }
 export const p3 = {
   display: "flex",
   flexDirection: "column",
-  justifyContent: "right",
+  justifyContent: "center",
+  paddingLeft: "37.5%",
+  paddingRight: "37.5%",
   marginLeft: "2px",
   marginTop: "16px",
   fontFamily: "'Roboto Slab', serif",
@@ -57,6 +64,7 @@ export const buttonStyle = {
   border: "none",
   boxShadow: "1px 1px #142952",
   color: "white",
+  maxWidth: "10em",
   fontSize: "1em",
   textAlign: "center",
   padding: "2px 10px",
@@ -72,11 +80,11 @@ export const commentStyle = {
 export const inputStyle = {
   padding: "2x 10px",
   fontSize: "0.8em",
-  marginLeft: "2px",
-  marginRight: "2px",
+  maxWidth: "154px",
   color: "#142952",
   borderRadius: "6px",
   borderColor: "#98b2e6",
+  margin: "2px",
   fontFamily: "'Roboto Slab', serif"
 }
 export const panelStyle = {

@@ -1,7 +1,7 @@
 import React, { useEffect, useContext, useRef, useState } from 'react'
 import { SessionData } from './data/Context'
 import firebase from 'firebase'
-import { commentStyle } from './styles.js'
+import { commentStyle, p3} from './styles.js'
 
 export default function TextPane({ showComment, playBackOn, currentTime }) {
   const comments = useContext(SessionData).comments
@@ -62,7 +62,9 @@ export default function TextPane({ showComment, playBackOn, currentTime }) {
       }
       else {
         console.log("matching")
+        console.log(commentRoll)
         for (const comment in commentRoll) {
+          console.log(commentRoll[comment])
           if (currentTime + .021 >= commentRoll[comment].ts && currentTime - .021 <= commentRoll[comment].ts) {
             console.log("match!")
             matchArrays.push({time: commentRoll[comment].ts, text: commentRoll[comment].text})
@@ -88,11 +90,13 @@ export default function TextPane({ showComment, playBackOn, currentTime }) {
 
   return (
     <>
+    <div style={p3}>
     {(playBackOn) &&
       <div style={commentStyle}>
       {items.current}
       </div>
     }
+    </div>
     </>
   )
 }
